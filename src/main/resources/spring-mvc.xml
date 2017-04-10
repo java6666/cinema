@@ -11,7 +11,7 @@
     <mvc:annotation-driven/>
     <!--开启视图-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
-        <!--美化-->
+    <!--美化-->
     <mvc:resources mapping="/css/**" location="/css/"/>
 
 </beans>
