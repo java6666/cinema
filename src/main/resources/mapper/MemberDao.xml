@@ -6,7 +6,7 @@
         values (#{memberEmail},#{memberPwd},#{memberName},#{memberPhone},#{memberGender},#{memberPhoto});
     </insert>
     <update id="updateMemberById">
-        update member set member_email = #{memberEmail},member_pwd=#{memberPwd},member_name=#{memberName}, member_phone=#{memberPhone}, member_money=#{memberMoney}, member_gender=#{memberGender}, member_photo=#{memberPhone} where member_id=#{memberId} ;
+        update member set member_email = #{memberEmail},member_pwd=#{memberPwd},member_name=#{memberName}, member_phone=#{memberPhone}, member_money=#{memberMoney}, member_gender=#{memberGender}, member_photo=#{memberPhoto} where member_id=#{memberId} ;
     </update>
     <delete id="deleteMemberById">
         DELETE FROM member WHERE member_id=#{memberId}
