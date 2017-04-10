@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="model.dao.AdminDao" >
+    <insert id="insertAdmin">
+        insert into admin (admin_name, admin_pwd, admin_privilege) values (#{adminName},#{adminPwd},#{adminPrivilege});
+    </insert>
+    <update id="updateAdminById">
+        update cinema.admin set admin_name=#{adminName},admin_pwd=#{adminPwd},admin_privilege=#{adminPrivilege} where admin_id=#{adminId};
+    </update>
+    <delete id="deleteAdminById">
+        DELETE FROM admin WHERE admin_id=#{adminId}
+    </delete>
+    <resultMap id="map" type="model.entity.Admin">
+        <id column="admin_id" property="adminId"/>
+        <result column="admin_name" property="adminName"/>
+        <result column="admin_pwd" property="adminPwd"/>
+        <result column="admin_privilege" property="adminPrivilege"/>
+    </resultMap>
+    <select id="selectAdmin" resultMap="map">
+        select * from admin;
+    </select>
+</mapper>
