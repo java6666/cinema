@@ -17,7 +17,7 @@ public class MemberController {
     @Resource
     private MemberDao memberDao;
 
-    @RequestMapping(path = "/addMember",method = RequestMethod.GET)
+    @RequestMapping(path = "/addMember",method = RequestMethod.GET,produces = "text/html;charset=utf-8")
     public String addMember(){
         return "WEB-INF/addMember.jsp";
     }
@@ -26,7 +26,7 @@ public class MemberController {
     public String addMember(String email, String password, String name, String photo, Integer gender, String phone, Model model){
         Member member = new Member(email, password, name, phone, gender, phone);
         Member temp = memberDao.selectMemberByName(name);
-        if(name.equals(temp.getMemberName())){
+        if(temp!=null){
             model.addAttribute("temp","用户名重复");
             return "WEB-INF/addMember.jsp";
         }else {
@@ -35,11 +35,11 @@ public class MemberController {
             return "index.jsp";
         }
     }
-    @RequestMapping(path = "/login",method = RequestMethod.GET)
+    @RequestMapping(path = "/login",method = RequestMethod.GET,produces = "text/html;charset=utf-8")
     public String login(){
         return "WEB-INF/login.jsp";
     }
-    @RequestMapping(path ="/login",method = RequestMethod.POST)
+    @RequestMapping(path ="/login",method = RequestMethod.POST,produces = "text/html;charset=utf-8")
     public String login(String name,String password){
         Member member = memberDao.selectMemberByName(name);
         if (password.equals(member.getMemberPwd())){
