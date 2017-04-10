@@ -19,4 +19,7 @@
     <select id="selectAdmin" resultMap="map">
         select * from admin;
     </select>
+    <select id="selectAdminByName" resultMap="map">
+        select * from admin  where admin_name=#{name};
+    </select>
 </mapper>

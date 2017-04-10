@@ -40,13 +40,18 @@ public class MemberController {
         return "WEB-INF/login.jsp";
     }
     @RequestMapping(path ="/login",method = RequestMethod.POST,produces = "text/html;charset=utf-8")
-    public String login(String name,String password){
+    public String login(String name,String password,Model model){
+        String str=null;
         Member member = memberDao.selectMemberByName(name);
-        if (password.equals(member.getMemberPwd())){
-            return "WEB-INF/good.jsp";
-        }else {
-            return "WEB-INF/login.jsp";
+        if(member == null){
+            model.addAttribute("temp","用户名或密码不正确");
+            str="WEB-INF/login.jsp";
+        }else if (password.equals(member.getMemberPwd())){
+            str="WEB-INF/good.jsp";
         }
+
+        return str;
+
 
     }
 }
