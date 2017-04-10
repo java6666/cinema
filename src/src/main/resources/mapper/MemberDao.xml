@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="model.dao.MemberDao">
+    <insert id="insertMember">
+        insert into member (member_email, member_pwd, member_name, member_money, member_gender, member_phone)
+        values (#{memberEmail},#{memberPwd},#{memberName},#{memberPhone},#{memberGender},#{memberPhoto});
+    </insert>
+    <update id="updateMemberById">
+        update member set member_email = #{memberEmail},member_pwd=#{memberPwd},member_name=#{memberName}, member_phone=#{memberPhone}, member_money=#{memberMoney}, member_gender=#{memberGender}, member_photo=#{memberPhone} where member_id=#{memberId} ;
+    </update>
+    <delete id="deleteMemberById">
+        DELETE FROM member WHERE member_id=#{memberId}
+    </delete>
+    <resultMap id="map" type="model.entity.Member">
+        <id column="member_id" property="memberId"/>
+        <result column="member_email" property="memberEmail" />
+        <result column="member_pwd" property="memberPwd"/>
+        <result column="member_name" property="memberName"/>
+        <result column="member_phone" property="memberPhone"/>
+        <result column="member_money" property="memberMoney"/>
+        <result column="member_gender" property="memberGender"/>
+        <result column="member_photo" property="memberPhoto"/>
+    </resultMap>
+    <select id="selectMember" resultMap="map">
+        select * from member;
+    </select>
+    <select id="selectMemberByName" resultMap="map">
+        select * FROM member WHERE member_name=#{memberName}
+    </select>
+</mapper>
