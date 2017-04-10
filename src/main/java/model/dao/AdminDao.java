@@ -12,5 +12,6 @@ public interface AdminDao {
     void updateAdminById(Admin admin);
     List<Admin> selectAdmin();
     void deleteAdminById(Integer id);
+    Admin selectAdminByName(String name);
 
 }

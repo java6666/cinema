@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form action="/login" method="post">
+<form action="/admin/login" method="post">
     <span>${requestScope.temp}</span><br/>
     用户名<input type="text" name="name"><br/>
     密码<input type="password" name="password"><br/>
