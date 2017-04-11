@@ -13,4 +13,5 @@ public interface MemberDao {
     void updateMemberById(Member member);
     List<Member> selectMember();
     Member selectMemberByName(String name);
+    Member selectMemberById(Integer id);
 }
