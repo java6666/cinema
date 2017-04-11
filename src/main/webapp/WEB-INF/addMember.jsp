@@ -61,8 +61,8 @@
                 <button type="submit" class="btn btn-default">搜索影片</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a class="btn" data-target="#mymodal">登陆</a></li>
-                <li><a class="btn">注册</a></li>
+                <li><a class="btn" data-toggle="modal" data-target="#login">登陆</a></li>
+                <li><a class="btn" data-toggle="modal" data-target="#registered">注册</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -70,40 +70,55 @@
 
 <div class="container theme-showcase" >
     <%--登录弹窗页面--%>
-        <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" >
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">登录</h4>
+                </div>
+                <form action="/login" method="post">
+                <div class="modal-body">
+                        <span>${requestScope.temp}</span><br/>
+                        用户名<input type="text" name="name"><br/>
+                        密&nbsp;&nbsp;码<input type="password" name="password"><br/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="submit" class="btn btn-primary">登录</button>
+                </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <%--注册弹窗页面--%>
+        <div class="modal fade" id="registered" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" >
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <h4 class="modal-title">注册</h4>
                     </div>
+                    <form action="/addMember" method="post">
                     <div class="modal-body">
-                        <form action="/addMember" method="post">
                             姓名<input type="text" name="name" ><span>${requestScope.temp}</span><br/>
                             密码<input type="password" name="password" ><br/>
                             电话<input type="tel" name="phone" ><br/>
                             邮件<input type="email" name="email"><br/>
                             性别: 男<input type="radio" name="gender" value="1" checked>&nbsp;女<input type="radio" name="gender" value="0"> <br/>
                             照片<input type="text" name="photo" ><br/>
-                        </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
                         <button type="submit" class="btn btn-primary">注册</button>
                     </div>
+                    </form>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
         <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
         <script src="http://cdn.bootcss.com/bootstrap/2.3.1/js/bootstrap-transition.js"></script>
         <script src="http://cdn.bootcss.com/bootstrap/2.3.1/js/bootstrap-modal.js"></script>
-        <script>
-            $(function(){
-                $(".btn").click(function(){
-                    $("#mymodal").modal("toggle");
-                });
-            });
-        </script>
 
 <%-- 动态广告 --%>
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
