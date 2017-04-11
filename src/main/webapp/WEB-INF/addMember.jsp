@@ -56,21 +56,21 @@
             </ul>
             <form class="navbar-form navbar-left">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" placeholder="请输入片名">
                 </div>
                 <button type="submit" class="btn btn-default">搜索影片</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <a class="btn btn-primary">登陆</a>
-                <a class="btn btn-primary">注册</a>
+                <li><a class="btn" data-target="#mymodal">登陆</a></li>
+                <li><a class="btn">注册</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 
-<div class="container theme-showcase" role=  "main">
+<div class="container theme-showcase" >
     <%--登录弹窗页面--%>
-        <div class="modal fade" id="mymodal">
+        <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" >
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -89,12 +89,11 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn btn-primary">注册</button>
+                        <button type="submit" class="btn btn-primary">注册</button>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-
         <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
         <script src="http://cdn.bootcss.com/bootstrap/2.3.1/js/bootstrap-transition.js"></script>
         <script src="http://cdn.bootcss.com/bootstrap/2.3.1/js/bootstrap-modal.js"></script>
@@ -158,7 +157,10 @@
 </div>
 <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
+<%-- 影片展示 --%>
+        <div>
+            <h1>热片</h1>
+        </div>
 
         <div class="row">
             <div class="col-sm-6 col-md-4">
@@ -167,15 +169,17 @@
                     <div class="caption">
                         <h3>片名</h3>
                         <p>影片介绍</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Button</a>
-                            <a href="#" class="btn btn-default" role="button">Button</a></p>
+                        <p><a href="#" class="btn btn-primary" role="button">购票</a></p>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
 </div>
+
+
+
+
+<%--BGM--%>
+<EMBED src="../css/BGM/Janji%20-%20Horizon.mp3" autostart="true" loop="-1" width="0" height="0" >
 </body>
 </html>
