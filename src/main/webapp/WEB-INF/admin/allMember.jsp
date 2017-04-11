@@ -40,7 +40,13 @@
             <td>${list.memberPwd}</td>
             <td>${list.memberPhone}</td>
             <td>${list.memberMoney}</td>
-            <td>${list.memberGender}</td>
+
+            <c:if test="${list.memberGender==1}" >
+            <td>男</td>
+            </c:if>
+            <c:if test="${list.memberGender==2}" >
+                <td>女</td>
+            </c:if>
             <td>${list.memberPhoto}</td>
             <td>
                 <a href="deleteMember?memberId=${list.memberId}&memberName=${list.memberName}">删除</a>

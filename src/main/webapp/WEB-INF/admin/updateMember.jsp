@@ -48,7 +48,18 @@
         <td><input type="text" name="memberMoney" value="${requestScope.member.memberMoney}"/></td>
     <tr>
         <td>性别</td>
-    <td><input type="text" name="memberGender" value="${requestScope.member.memberGender}"/></td>
+    <td>
+        <select name="memberGender" >
+            <c:if test="${requestScope.member.memberGender==1}">
+            <option value="1" selected="selected" >男</option>
+            <option value="2">女</option>
+            </c:if>
+            <c:if test="${requestScope.member.memberGender==2}">
+                <option value="1"  >男</option>
+                <option value="2" selected="selected">女</option>
+            </c:if>
+        </select>
+        </td>
 </tr>
     <tr>
         <td>照片</td>

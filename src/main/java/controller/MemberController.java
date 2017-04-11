@@ -63,7 +63,7 @@ public class MemberController {
         request.setAttribute("membersList",membersList);
         return "WEB-INF/admin/allMember.jsp";
     }
-    //更新用户信息
+    //跳转更新会员信息页面，get请求
     @RequestMapping(value="/updateMember",method=RequestMethod.GET,produces = "text/html;charset=utf-8")
     public  String updateMember(Integer memberId,String memberName ,HttpServletRequest request){
         Member member = new Member();
@@ -72,7 +72,7 @@ public class MemberController {
         request.setAttribute("member",member);
         return "WEB-INF/admin/updateMember.jsp";
     }
-
+    //执行更新会员信息，post请求
     @RequestMapping(value="/updateMember",method=RequestMethod.POST,produces = "text/html;charset=utf-8")
     public String updateMember(Integer memberId ,String memberEmail, String memberPwd, String memberName, String memberPhone,Double memberMoney,Integer memberGender ,String memberPhoto ,HttpServletRequest request){
         Member member = new Member();
@@ -82,20 +82,22 @@ public class MemberController {
         member.setMemberPwd(memberPwd);
         member.setMemberPhone(memberPhone);
         member.setMemberMoney(memberMoney);
-        member.setMemberGender(1);
+        member.setMemberGender(memberGender);
         member.setMemberPhoto(memberPhoto);
-
         memberDao.updateMemberById(member);
-
+        return "redirect:/selectMember";
+    }
+    //删除会员信息
+    @RequestMapping(value="/deleteMember",method=RequestMethod.GET,produces = "text/html;charset=utf-8")
+    public  String updateMember(Integer memberId,HttpServletRequest request){
+        memberDao.deleteMemberById(memberId);
         return "redirect:/selectMember";
     }
 
-    @RequestMapping(value="/deleteMember",method=RequestMethod.GET,produces = "text/html;charset=utf-8")
-    public  String updateMember(Integer memberId,HttpServletRequest request){
+    @RequestMapping(value = "/movieTop",method = RequestMethod.GET)
+    public  String movieTop(){
 
-         memberDao.deleteMemberById(memberId);
-
-        return "redirect:/selectMember";
+        return "WEB-INF/movie/movieTop.jsp";
     }
 
 }
