@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="model.dao.PlayDao" >
+    <resultMap id="mm" type="model.entity.Play">
+        <id column="play_id" property="playId"/>
+        <result column="play_movie" property="playMovie"/>
+        <result column="play_time" property="playTime"/>
+        <result column="play_price" property="playPrice"/>
+    </resultMap>
+    <insert id="insertPlay">
+      INSERT INTO play(play_movie,play_time,play_price)VALUES (#{playMovie},#{playTime},#{playPrice})
+    </insert>
+    <update id="updatePlay">
+        UPDATE play SET play_movie=#{playMovie},play_time=#{playTime},
+        play_price=#{playPrice} WHERE play_id=#{playId}
+    </update>
+    <delete id="deleteById">
+        DELETE FROM play WHERE play_id=#{playId}
+    </delete>
+    <select id="selectAll" resultMap="mm">
+        SELECT * FROM play
+    </select>
+    <select id="selectById" resultMap="mm">
+        SELECT * FROM play WHERE play_id=#{playId}
+    </select>
+</mapper>
