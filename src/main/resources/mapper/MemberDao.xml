@@ -27,5 +27,7 @@
     <select id="selectMemberByName" resultMap="map">
         select * FROM member WHERE member_name=#{memberName}
     </select>
-    <select id="selectMemberById" resultType="model.entity.Member"></select>
+    <select id="selectMemberById" resultType="model.entity.Member">
+        select * from member WHERE member_id=#{memberId};
+    </select>
 </mapper>
