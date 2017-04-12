@@ -8,10 +8,15 @@
 
     <context:component-scan base-package="controller"/>
     <!--开启服务注解-->
+    <!--拦截所有资源没有服务的话就返回404-->
     <mvc:annotation-driven/>
-    <!--开启视图-->
+    <!--1.先匹配服务-->
+    <!--将匹配不到的地址交给tomcat管理-->
+    <!--tomcat如果找不到的话才返回404-->
+    <mvc:default-servlet-handler/>
+    <!--开启视图用jsp显示视图如果是html的话不用开启-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
-    <!--美化-->
+    <!--自定义静态文件目录增加性能,偷懒的话用<mvc:default-servlet-handler/>-->
     <mvc:resources mapping="/css/**" location="/css/"/>
 
 </beans>
