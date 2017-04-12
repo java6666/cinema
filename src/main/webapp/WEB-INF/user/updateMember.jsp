@@ -13,7 +13,7 @@
 </head>
 <body>
 <table border="1">
-    <form action="/updateMember" method="post">
+    <form action="/user/updateMember" method="post">
         <input type="hidden" name="id" value="${temp.memberId}">
         <tr>
             <td>邮箱</td>

@@ -28,7 +28,7 @@
     </script>
 </head>
 <body>
-<form action="/updatePwd" id="f1" method="post" onsubmit="return CheckPost();">
+<form action="/user/updatePwd" id="f1" method="post" onsubmit="return CheckPost();">
     原密码<input type="password" name="passwordO"><span>${requestScope.temp}</span><br/>
     新密码<input type="password" id="password" name="password"><br/>
     再输一次<input type="password" id="rePassword" name="repassword"><br/>

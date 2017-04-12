@@ -29,10 +29,10 @@
             <c:if test="${temp.memberGender==1}">男</c:if>
         </td>
         <td>
-            <a href="/updateMember"><button type="button">修改信息</button></a>
+            <a href="/user/updateMember"><button type="button">修改信息</button></a>
         </td>
         <td>
-            <a href="/updatePwd"><button type="button">修改密码</button></a>
+            <a href="/user/updatePwd"><button type="button">修改密码</button></a>
         </td>
     </tr>
 
