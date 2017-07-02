@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="model.dao.MovieDao" >
+    <resultMap id="m" type="model.entity.Movie">
+        <id column="movie_id" property="movieId"/>
+        <result column="movie_name" property="movieName"/>
+        <result column="movie_director" property="movieDirector"/>
+        <result column="movie_actor" property="movieActor"/>
+        <result column="movie_info" property="movieInfo"/>
+        <result column="movie_language" property="movieLanguage"/>
+        <result column="movie_kind" property="movieKind"/>
+        <result column="movie_photo" property="moviePhoto"/>
+        <result column="movie_long" property="movieLong"/>
+        <result column="movie_date" property="movieDate"/>
+        <result column="movie_edition" property="movieEdition"/>
+    </resultMap>
+    <insert id="insertMovie">
+        INSERT INTO movie (movie_name, movie_director, movie_actor, movie_info, movie_language, movie_kind, movie_photo, movie_long, movie_date, movie_edition)
+         VALUES (#{movieName},#{movieDirector},#{movieActor},#{movieInfo},#{movieLanguage},#{movieKind},#{moviePhoto},#{movieLong},#{movieDate},#{movieEdition})
+    </insert>
+    <update id="updateMovie">
+        UPDATE movie SET movie_actor=#{movieActor},movie_long=#{movieLong},movie_director=#{movieDirector},
+        movie_name=#{movieName},movie_language=#{movieLanguage},movie_kind=#{movieKind},
+        movie_photo=#{moviePhoto},movie_date=#{movieDate},movie_edition=#{movieEdition},movie_info=#{movieInfo} WHERE movie_id=#{movieId}
+    </update>
+    <delete id="deleteById">
+        DELETE FROM movie WHERE movie_id=#{movieId}
+    </delete>
+    <select id="selectAll" resultMap="m">
+        SELECT * FROM movie
+    </select>
+    <select id="selectById" resultMap="m">
+      SELECT * FROM movie WHERE movie_id=#{movieId}
+    </select>
+    <select id="queryMovie" resultMap="m">
+        SELECT * FROM movie
+        <where>
+            <if test="movieName!=null">
+                movie_name LIKE #{movieName}
+            </if>
+        </where>
+    </select>
+    <select id="findByPage" resultMap="m">
+        SELECT * FROM movie
+        <where>
+            <if test="movieName!=null">
+                movie_name =#{movieName}
+            </if>
+            <if test="movieDirector!=null">
+                and movie_director=#{movieDirector}
+            </if>
+            <if test="movieActor!=null">
+                and movie_actor=#{movieActor}
+            </if>
+            <if test="movieInfo!=null">
+                and movie_info=#{movieInfo}
+            </if>
+            <if test="movieLanguage!=null">
+                and movie_language=#{movieLanguage}
+            </if>
+            <if test="movieKind!=null">
+                and movie_kind=#{movieKind}
+            </if>
+            <if test="moviePhoto!=null">
+                and movie_photo=#{moviePhoto}
+            </if>
+            <if test="movieLong!=null">
+                and movie_long=#{movieLong}
+            </if>
+            <if test="movieDate!=null">
+                and movie_date=#{movieDate}
+            </if>
+            <if test="movieEdition!=null">
+                and movie_long=#{movieEdition}
+            </if>
+        </where>
+    </select>
+</mapper>

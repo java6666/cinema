@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/' >
+        <!--控制台添加器将日志输出到控制台-->
+    <appender name="Console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <!--value="[%d{dd HH:mm:ss,SSS\} %-5p] [%t] %c{1\} - %m%n" /  可调       -->
+            <param name="ConversionPattern"
+
+                   value="[%d{dd HH:mm:ss,SSS\} %-5p] [%t] %c{1\} - %m%n" />
+        </layout>
+
+    </appender>
+        <!--设置日志配置文件名-->
+    <appender name="filAppender" class="org.apache.log4j.FileAppender">
+        <param name="File" value="d:/cinemaLog/log4j.txt"/><!--设置日志文件名-->
+
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="[%d{MMdd HH:mm:ss SSS\} %-5p] [%t] %c{3\} - %m%n" />
+        </layout>
+    </appender>
+
+    <root>
+        <!--设置bug级别-->
+        <priority value ="info"/>
+        <appender-ref ref="Console"/>
+        <!--设置文件的引用-->
+        <appender-ref ref="filAppender"/>
+
+    </root>
+</log4j:configuration>

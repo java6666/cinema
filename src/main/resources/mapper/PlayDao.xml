@@ -8,7 +8,7 @@
         <result column="play_price" property="playPrice"/>
     </resultMap>
     <insert id="insertPlay">
-      INSERT INTO play(play_movie,play_time,play_price)VALUES (#{playMovie},#{playTime},#{playPrice})
+      INSERT INTO play (play_movie, play_time, play_price) VALUES (#{playMovie},#{playTime},#{playPrice})
     </insert>
     <update id="updatePlay">
         UPDATE play SET play_movie=#{playMovie},play_time=#{playTime},

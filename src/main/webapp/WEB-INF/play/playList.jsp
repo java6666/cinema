@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<form action="/addPlay" method="post">
+<form action="/test/addPlay" method="post">
     影片ID:<input  name="playMovie">
     场次时间：<input type="date" name="playTime">
     场次价钱:<input  name="playPrice">
@@ -36,8 +36,8 @@
             <td>${item.playMovie}</td>
             <td><f:formatDate value="${item.playTime}" pattern="yyyy-MM-dd"/> </td>
             <td>${item.playPrice}</td>
-            <td><a href="/delete?playId=${item.playId}">删除</a> </td>
-            <td><a href="/update?playId=${item.playId}">修改</a> </td>
+            <td><a href="/test/delete?playId=${item.playId}">删除</a> </td>
+            <td><a href="/test/update?playId=${item.playId}">修改</a> </td>
         </tr>
     </c:forEach>
 </table>

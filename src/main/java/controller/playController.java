@@ -1,5 +1,6 @@
 package controller;
 
+
 import model.dao.PlayDao;
 import model.entity.Play;
 import org.springframework.stereotype.Controller;
@@ -16,10 +17,10 @@ import java.util.List;
  * Created by HY_PC on 2017-4-11.
  */
 @Controller
+@RequestMapping(value = "/test")
 public class playController {
     @Resource
     private PlayDao dao;
-
     @RequestMapping(value = "/show",method = RequestMethod.GET)
     public String show(Model model){
         List<Play> plays = dao.selectAll();
@@ -44,7 +45,7 @@ public class playController {
         play.setPlayTime(sdf.parse(playTime));
         play.setPlayPrice(playPrice);
         dao.insertPlay(play);
-        return "redirect:/show";
+        return "redirect:/test/show";
     }
 
     /**
@@ -55,7 +56,7 @@ public class playController {
     @RequestMapping(value = "/delete",method = RequestMethod.GET)
     public String delete(Integer playId){
         dao.deleteById(playId);
-        return "redirect:/show";
+        return "redirect:/test/show";
     }
 
     /**
@@ -79,7 +80,7 @@ public class playController {
      * @return
      */
     @RequestMapping(value = "/update",method = RequestMethod.POST)
-    public String updateUser(Integer playId, Integer playMovie, String playTime, Double playPrice) throws ParseException {
+    public String updatePlay(Integer playId, Integer playMovie, String playTime, Double playPrice) throws ParseException {
         Play play = new Play();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         play.setPlayId(playId);
@@ -87,7 +88,7 @@ public class playController {
         play.setPlayTime(sdf.parse(playTime));
         play.setPlayMovie(playMovie);
         dao.updatePlay(play);
-        return "redirect:/show";
+        return "redirect:/test/show";
     }
 
 }

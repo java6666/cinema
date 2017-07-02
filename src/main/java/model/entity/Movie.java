@@ -18,6 +18,16 @@ public class Movie {
     private Date movieDate;
     private Integer movieEdition;
 
+    public Integer getMovieLanguage() {
+        return movieLanguage;
+    }
+
+    public void setMovieLanguage(Integer movieLanguage) {
+        this.movieLanguage = movieLanguage;
+    }
+
+    private Integer movieLanguage;
+
     public Movie() {
     }
 

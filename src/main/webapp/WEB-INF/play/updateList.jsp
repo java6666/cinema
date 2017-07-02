@@ -12,7 +12,7 @@
     <title>修改页面</title>
 </head>
 <body>
-<form action="/update" method="post">
+<form action="/test/update" method="post">
     <input type="hidden" name="playId" value="${requestScope.title.playId}">
     影片ID:<input name="playMovie" value="${requestScope.title.playMovie}">
     场次时间:<input name="playTime" value="<f:formatDate
